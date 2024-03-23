@@ -21,12 +21,12 @@ supr (x:xs) = if (x == head xs) then x else supr xs
 areMembers [] y = True
 areMembers (x:xs) y = (x `elem` y) && (areMembers xs y)
 
-fStepProductNonTerms g xs = uniq ( [l | (l,r) <- g, areMembers r xs ] ++ xs )
+fStepProductNonTerms g t xs = uniq ( [l | (l,r) <- g, areMembers r (xs ++ t) ] ++ xs )
 
 xs0 g t = [l | (l,r) <- g, areMembers r t ]
 
 productNonTerms :: Gram -> [String] -> [String]
-productNonTerms g t = supr (iterate (fStepProductNonTerms g) (xs0 g t) )
+productNonTerms g t = supr (iterate (fStepProductNonTerms g t) (xs0 g t) )
 
 unproductNonTerms :: Gram -> [String] -> [String] -> [String]
 unproductNonTerms _ [] _ = []
@@ -47,7 +47,7 @@ getElementAtIndex (x:xs) index
 
 main :: IO ()
 main = do
-  content <- readFile "/uploads/test.txt"
+  content <- readFile "/uploads/haskell_test_4.txt"
   let lists = lines content
   let nonTerminals = words $ getElementAtIndex lists 0
   let terminals = words $ getElementAtIndex lists 1

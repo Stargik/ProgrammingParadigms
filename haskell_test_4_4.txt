@@ -1,0 +1,11 @@
+S A A1 A2 B B1 C D E
+a b c eps
+S A B C
+S A D B
+A A1 B
+A1 A2 B
+A2 a
+B B1 b
+B1 eps
+C E
+D a A b B
