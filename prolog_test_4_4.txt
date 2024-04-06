@@ -1,0 +1,22 @@
+non_terminal('S').
+non_terminal('A').
+non_terminal('A1').
+non_terminal('A2').
+non_terminal('B').
+non_terminal('B1').
+non_terminal('C').
+non_terminal('D').
+non_terminal('E').
+terminal('a').
+terminal('b').
+terminal('c').
+terminal('eps').
+rule('S', ['A', 'B', 'C']).
+rule('S', ['A', 'D', 'B']).
+rule('A', ['A1', 'B']).
+rule('A1', ['A2', 'B']).
+rule('A2', ['a']).
+rule('B', ['B1', 'b']).
+rule('B1', ['eps']).
+rule('C', ['E']).
+rule('D', ['a', 'A', 'b', 'B']).

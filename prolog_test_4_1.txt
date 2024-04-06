@@ -1,0 +1,11 @@
+non_terminal('S').
+non_terminal('A').
+non_terminal('B').
+non_terminal('C').
+terminal('b').
+terminal('c').
+rule('S', ['S']).
+rule('S', ['A']).
+rule('A', ['A', 'B']).
+rule('B', ['b']).
+rule('C', ['c']).
